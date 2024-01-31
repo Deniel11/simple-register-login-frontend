@@ -5,7 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-verify-email',
   templateUrl: './verify-email.component.html',
-  styleUrls: ['../login.component.css']
+  styleUrls: ['../auth.component.css']
 })
 export class VerifyEmailComponent {
 

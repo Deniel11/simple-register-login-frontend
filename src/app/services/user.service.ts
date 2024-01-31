@@ -14,10 +14,10 @@ export class UserService {
   private verifyEmailPath = this.userApiPath + '/verify-email';
   private forgotPasswordPath = this.userApiPath + '/forgot-password?email=';
   private changePasswordPath = this.userApiPath + '/change-password?token=';
-  private getUserPath = this.userApiPath + '';
+  private getUserPath = this.userApiPath + '/';
   private getUsersPath = this.userApiPath + '/users'; 
-  private getOtherUserPath = this.userApiPath + '';
-  private editUserPath = this.userApiPath + '';
+  private getOtherUserPath = this.userApiPath + '/';
+  private editUserPath = this.userApiPath + '/';
 
   constructor(private http: HttpClient) { }
 

@@ -25,12 +25,12 @@ import { MainComponent } from './components/main/main.component';
 import { UserComponent } from './components/main/user/user.component';
 import { OtherUserComponent } from './components/main/other-user/other-user.component';
 import { UsersComponent } from './components/main/users/users.component';
-import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from './components/login/change-password/change-password.component';
-import { VerifyEmailComponent } from './components/login/verify-email/verify-email.component';
-import { RegisterComponent } from './components/login/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { SingInComponent } from './components/login/sing-in/sing-in.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
+import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { SingInComponent } from './components/auth/sing-in/sing-in.component';
 import { EditUserComponent } from './components/main/edit-user/edit-user.component';
 
 @NgModule({
@@ -44,7 +44,7 @@ import { EditUserComponent } from './components/main/edit-user/edit-user.compone
     ChangePasswordComponent,
     VerifyEmailComponent,
     RegisterComponent,
-    LoginComponent,
+    AuthComponent,
     SingInComponent,
     EditUserComponent
   ],
