@@ -1,0 +1,48 @@
+<mat-card id="card">
+    <form [formGroup]="form" (ngSubmit)="register()">
+        <mat-card-title>
+            <h1 id="title">Registration</h1>
+        </mat-card-title>
+
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-error *ngIf="username && username.touched">
+                    Username must be 4 characters.
+                </mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <mat-label>Email address</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="email && email.touched">
+                    Wrong email! Example: your@email.com
+                </mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput  [type]="hide ? 'password' : 'text'" formControlName="password">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password && password.touched">
+                    Password must be 8 characters and includes 1 uppercase character.
+                </mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <mat-label>Date of bithday</mat-label>
+                <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matIconSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                <mat-datepicker #dateOfBirth></mat-datepicker>
+                <mat-error *ngIf="dateOfBirth">
+                    Date of Birth is require!
+                </mat-error>
+            </mat-form-field><br>
+
+            <button mat-raised-button color="primary" [disabled]="form.invalid">Register</button>
+            <button mat-raised-button color="primary" type="button" routerLink="/">Login</button>
+            <p class="error">{{errorMessage}}</p>
+        </mat-card-content>
+    </form>
+</mat-card>
