@@ -30,7 +30,7 @@ import { ChangePasswordComponent } from './components/auth/change-password/chang
 import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthComponent } from './components/auth/auth.component';
-import { SingInComponent } from './components/auth/sing-in/sing-in.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { EditUserComponent } from './components/main/edit-user/edit-user.component';
 
 @NgModule({
@@ -45,7 +45,7 @@ import { EditUserComponent } from './components/main/edit-user/edit-user.compone
     VerifyEmailComponent,
     RegisterComponent,
     AuthComponent,
-    SingInComponent,
+    LoginComponent,
     EditUserComponent
   ],
   imports: [

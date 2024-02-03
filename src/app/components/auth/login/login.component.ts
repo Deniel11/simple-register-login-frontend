@@ -4,11 +4,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-sing-in',
-  templateUrl: './sing-in.component.html',
+  selector: 'app-login',
+  templateUrl: './login.component.html',
   styleUrls: ['../auth.component.css']
 })
-export class SingInComponent {
+export class LoginComponent {
   form:FormGroup;
 
   errorMessage : String | undefined;
