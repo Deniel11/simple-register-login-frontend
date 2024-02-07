@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-other-user',
@@ -14,7 +14,7 @@ export class OtherUserComponent {
 
   errorMessage : String | undefined;
 
-  constructor(private route : ActivatedRoute, private userService : UserService, private authService : AuthService) {
+  constructor(private route : ActivatedRoute, private apiService : ApiService, private authService : AuthService) {
     let id = route.snapshot.paramMap.get('id');
     if(id != null) {
       this.getOtherUser(id);
@@ -24,7 +24,7 @@ export class OtherUserComponent {
   getOtherUser(id : String) {
     let token = this.authService.getToken();
     if(token != null) {
-      this.userService.getOtherUser(token, id).subscribe(data => {
+      this.apiService.getOtherUser(token, id).subscribe(data => {
         if(data.status == 'error') {
           this.errorMessage = data.message;
         } else if(data.type == 'error' || data.error != null) {

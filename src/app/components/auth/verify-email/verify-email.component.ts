@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-verify-email',
@@ -11,7 +11,7 @@ export class VerifyEmailComponent {
 
   errorMessage : String | undefined;
 
-  constructor(private route: ActivatedRoute, private userService : UserService) {
+  constructor(private route: ActivatedRoute, private apiService : ApiService) {
     this.verifyEmail();
   }
 
@@ -21,7 +21,7 @@ export class VerifyEmailComponent {
       emailToken = params['token'];
     });
     if(emailToken) {
-      this.userService.verifyEmail(emailToken).subscribe(data => {
+      this.apiService.verifyEmail(emailToken).subscribe(data => {
         if(data.type == 'error') {
           this.errorMessage = 'Something went wrong!';  
         } else {

@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent {
 
   hide = true;
 
-  constructor(private fb:FormBuilder, private userService: UserService) {
+  constructor(private fb:FormBuilder, private apiService: ApiService) {
     this.form = this.fb.group({
       username: ['',
         [
@@ -45,7 +45,7 @@ export class RegisterComponent {
     if (this.form.value.dateOfBirth != null) {
       this.form.value.dateOfBirth = formatDate(this.form.value.dateOfBirth, 'dd-MM-yyyy', 'en');
     }
-    this.userService.register(this.form.value).subscribe(data => {
+    this.apiService.register(this.form.value).subscribe(data => {
       if(data.status == 'error') {
         this.errorMessage = data.message;
       } else if(data.type == 'error') {

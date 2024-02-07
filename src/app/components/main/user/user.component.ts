@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-user',
@@ -14,14 +14,14 @@ export class UserComponent {
 
   errorMessage : String | undefined;
 
-  constructor(private userService : UserService, private authService : AuthService) {
+  constructor(private apiService : ApiService, private authService : AuthService) {
    this.getUser(); 
   }
 
   getUser() {
     let token = this.authService.getToken();
     if(token != null) {
-      this.userService.getUser(token).subscribe(data => {
+      this.apiService.getUser(token).subscribe(data => {
         if(data.status == 'error') {
           this.errorMessage = data.message;
         } else if(data.type == 'error' || data.error != null) {

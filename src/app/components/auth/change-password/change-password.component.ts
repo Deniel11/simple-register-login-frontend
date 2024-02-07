@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-change-password',
@@ -18,7 +18,7 @@ export class ChangePasswordComponent {
 
   hideNew = true;
 
-  constructor(private userService : UserService, private fb : FormBuilder, private route: ActivatedRoute) {
+  constructor(private apiService : ApiService, private fb : FormBuilder, private route: ActivatedRoute) {
     this.form = this.fb.group({
       oldPassword: ['', [
         Validators.required
@@ -36,7 +36,7 @@ export class ChangePasswordComponent {
       forgotPasswordToken = params['token'];
     });
     if(forgotPasswordToken) {
-      this.userService.changePassword(forgotPasswordToken, this.form.value).subscribe(data => {
+      this.apiService.changePassword(forgotPasswordToken, this.form.value).subscribe(data => {
         if(data.status == 'error') {
           this.errorMessage = data.message;
         } else if(data.type == 'error') {

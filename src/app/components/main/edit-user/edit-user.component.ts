@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
@@ -17,7 +18,7 @@ export class EditUserComponent {
 
   errorMessage : String | undefined;
 
-  constructor(private userService : UserService, private fb:FormBuilder, private route : ActivatedRoute, private authService : AuthService) {
+  constructor(private apiService : ApiService, private fb:FormBuilder, private route : ActivatedRoute, private authService : AuthService) {
     let id = route.snapshot.paramMap.get('id');
     if(id != null) {
       this.getOtherUser(id);
@@ -49,7 +50,7 @@ export class EditUserComponent {
   getOtherUser(id : String) {
     let token = this.authService.getToken();
     if(token != null) {
-      let data = this.userService.getOtherUser(token, id).subscribe(data => {
+      this.apiService.getOtherUser(token, id).subscribe(data => {
         if(data.status == 'error') {
           this.errorMessage = data.message;
         } else if(data.type == 'error' || data.error != null) {
@@ -84,8 +85,8 @@ export class EditUserComponent {
     if(this.user.email != this.form.value.email) {
       editUser.email = this.form.value.email;
     }
-    if(this.user.dateOfBirth != this.form.value.dateOfBirth) {
-      editUser.dateOfBirth = this.form.value.dateOfBirth;
+    if(this.user.dateOfBirth != this.form.value.dateOfBirth && this.form.value.dateOfBirth != null) {
+      editUser.dateOfBirth = formatDate(this.form.value.dateOfBirth, 'dd-MM-yyyy', 'en');
     }
     if(this.user.admin != this.form.value.admin) {      
       editUser.admin = this.form.value.admin;
@@ -104,7 +105,7 @@ export class EditUserComponent {
     }
     
     if(token != null) {
-      this.userService.editUser(token, this.user.id, editUser).subscribe(data => {
+      this.apiService.editUser(token, this.user.id, editUser).subscribe(data => {
         if(data.status == 'error') {
           this.errorMessage = data.message;
         } else if(data.type == 'error') {

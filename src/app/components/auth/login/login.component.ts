@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
 
   hide = true;
 
-  constructor(private fb:FormBuilder, private authService: AuthService, private userService: UserService) {
+  constructor(private fb:FormBuilder, private authService: AuthService, private apiService: ApiService) {
 
     this.form = this.fb.group({
       username: ['',Validators.required],
@@ -24,7 +24,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.userService.login(this.form.value.username, this.form.value.password).subscribe(data => {     
+    this.apiService.login(this.form.value.username, this.form.value.password).subscribe(data => {     
       if(data.status == 'error') {
         this.errorMessage = data.message;
       } else if(data.type == 'error') {

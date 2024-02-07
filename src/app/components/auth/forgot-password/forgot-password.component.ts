@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,7 +13,7 @@ export class ForgotPasswordComponent {
 
   errorMessage : String | undefined;
 
-  constructor(private userService : UserService, private fb : FormBuilder) {
+  constructor(private apiService : ApiService, private fb : FormBuilder) {
     this.form = this.fb.group({
       email: ['',
         [
@@ -26,7 +26,7 @@ export class ForgotPasswordComponent {
   }
 
   forgotPassword() {
-    this.userService.forgotPassword(this.form.value.email).subscribe(data => {
+    this.apiService.forgotPassword(this.form.value.email).subscribe(data => {
       if(data.status == 'error') {
         this.errorMessage = data.message;
       } else if(data.type == 'error') {

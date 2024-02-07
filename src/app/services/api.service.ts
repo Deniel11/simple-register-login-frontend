@@ -1,78 +1,77 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ApiService {
 
-  private domain = 'http://localhost:8080';
-  private userApiPath = '/api/user';
-  private registerPath = this.userApiPath + '/registration';
-  private loginPath = this.userApiPath + '/login';
-  private verifyEmailPath = this.userApiPath + '/verify-email';
-  private forgotPasswordPath = this.userApiPath + '/forgot-password?email=';
-  private changePasswordPath = this.userApiPath + '/change-password?token=';
-  private getUserPath = this.userApiPath + '/';
-  private getUsersPath = this.userApiPath + '/users'; 
-  private getOtherUserPath = this.userApiPath + '/';
-  private editUserPath = this.userApiPath + '/';
+  private registerPath = 'registration';
+  private loginPath = 'login';
+  private verifyEmailPath = 'verify-email';
+  private forgotPasswordPath = 'forgot-password?email=';
+  private changePasswordPath = 'change-password?token=';
+  private getUserPath = '';
+  private getUsersPath = 'users'; 
+  private getOtherUserPath = '';
+  private editUserPath = '';
 
   constructor(private http: HttpClient) { }
 
   register(user : Object) : Observable<any> {
-    let url = this.domain + this.registerPath;
+    let url = environment.apiURL + this.registerPath;
     let body = JSON.stringify(user);
     let options = this.getAcceptAndContentTypeHeader();
     return this.post(url, body, options);
   }
 
   login(username : String, password : string) : Observable<any> { 
-    let url = this.domain + this.loginPath;
+    let url = environment.apiURL + this.loginPath;
     let body = {username, password};
     let options = this.getAcceptAndContentTypeHeader();
     return this.post(url, body, options);
   }
 
   verifyEmail(token : String) : Observable<any> {
-    let url = this.domain + this.verifyEmailPath;
+    let url = environment.apiURL + this.verifyEmailPath;
     let body = { token };
     let options = this.getAcceptAndContentTypeHeader();
     return this.patch(url, body, options);
   }
 
   forgotPassword(email : String) : Observable<any> {
-    let url = this.domain + this.forgotPasswordPath + email;
+    let url = environment.apiURL + this.forgotPasswordPath + email;
     return this.get(url, {});
   }
 
   changePassword(token : String, body : Object) : Observable<any> {
-    let url = this.domain + this.changePasswordPath + token;
+    let url = environment.apiURL + this.changePasswordPath + token;
     let options = this.getAcceptAndContentTypeHeader();
     return this.patch(url, body, options);
   }
 
   getUser(JWToken : string) : Observable<any> {
-    let url = this.domain + this.getUserPath;
+    let url = environment.apiURL + this.getUserPath;
     let options = this.getAuthorizationBearerHeader(JWToken);
     return this.get(url, options);
   }
 
   getUsers(JWToken : string) : Observable<any> {
-    let url = this.domain + this.getUsersPath;
+    let url = environment.apiURL + this.getUsersPath;
     let options = this.getAuthorizationBearerHeader(JWToken);
     return this.get(url, options);
   }
 
   getOtherUser(JWToken : string, id : String) : Observable<any> {
-    let url = this.domain + this.getOtherUserPath + id;
+    let url = environment.apiURL + this.getOtherUserPath + id;
     let options = this.getAuthorizationBearerHeader(JWToken);
     return this.get(url, options);
   }
 
   editUser(JWToken : string, id : String, user : Object) : Observable<any> {
-    let url = this.domain + this.editUserPath + id;    
+    let url = environment.apiURL + this.editUserPath + id;    
     let options = this.getAuthorizationBearerHeader(JWToken);
     return this.put(url, user, options)
   }
