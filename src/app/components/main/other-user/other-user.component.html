@@ -1,0 +1,5 @@
+<p>Username: {{user?.username}}</p>
+<p>Email Address: {{user?.email}}</p>
+<p>Admin: {{user?.admin}}</p>
+<p>{{errorMessage}}</p>
+<button mat-raised-button color="primary" type="button" [routerLink]="['/edit-user/', user?.id]">Edit user</button>

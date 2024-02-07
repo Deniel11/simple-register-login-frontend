@@ -9,14 +9,6 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "paths": {
-      "interceptors": [
-        "dist/interceptors"
-      ],
-      "models": [
-        "dist/models"
-      ]
-    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

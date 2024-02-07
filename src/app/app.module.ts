@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,28 +19,40 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
-import { RegisterComponent } from './components/register/register.component';
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
-import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
-import { IndexHandlerRoutingModule } from './modules/index-handler-routing.module';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { UserComponent } from './components/main/user/user.component';
+import { OtherUserComponent } from './components/main/other-user/other-user.component';
+import { UsersComponent } from './components/main/users/users.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
+import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { EditUserComponent } from './components/main/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    LoginComponent,
     MainComponent,
-    VerifyEmailComponent
+    UserComponent,
+    OtherUserComponent,
+    UsersComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
+    VerifyEmailComponent,
+    RegisterComponent,
+    AuthComponent,
+    LoginComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    IndexHandlerRoutingModule,
-
+    RouterModule,
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
@@ -62,10 +70,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [
-    UserService,
-    AuthService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email Address</th>
+        <th>Admin</th>
+        <th>Verified</th>
+        <th>Enabled</th>
+    </tr>
+    <tr *ngFor="let user of users;">
+        <td class="pointer" [routerLink]="['/user/', user.id]">{{user.id}}</td>
+        <td class="pointer" [routerLink]="['/user/', user.id]">{{user.username}}</td>
+        <td class="pointer" [routerLink]="['/user/', user.id]">{{user.email}}</td>
+        <td class="pointer">
+            <div *ngIf="user.admin; else else_block">✔</div>
+            <ng-template #else_block>❌</ng-template>
+        </td>
+        <td class="pointer">
+            <div *ngIf="user.verified; else else_block">✔</div>
+            <ng-template #else_block>❌</ng-template>
+        </td>
+        <td class="pointer">
+            <div *ngIf="user.enabled; else else_block">✔</div>
+            <ng-template #else_block>❌</ng-template>
+        </td>
+    </tr>
+</table>

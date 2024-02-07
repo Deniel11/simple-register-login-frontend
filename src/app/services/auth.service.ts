@@ -9,14 +9,13 @@ export class AuthService {
 
   setToken(token:string) {
     localStorage.setItem('token', token);
- }
-  
- getToken(): string | null {
-    let token = localStorage.getItem('token');
-    return token;
- }
+  }
 
- removeToken() {
-  localStorage.clear();
- }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  removeToken() {
+    localStorage.clear();
+  }
 }
