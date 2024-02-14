@@ -1,42 +1,42 @@
 <form [formGroup]="form" (ngSubmit)="editUser()">
     <mat-card-title>
-        <h1 id="title">Edit user</h1>
+        <h1 id="title">{{"editUser"|translate}}</h1>
     </mat-card-title>
 
     <mat-card-content>
         <mat-form-field>
-            <mat-label>Username</mat-label>
+            <mat-label>{{"username"|translate}}</mat-label>
             <input matInput formControlName="username">
             <mat-error *ngIf="username && username.touched">
-                Username must be 4 characters.
+                {{"usernameError"|translate}}
             </mat-error>
         </mat-form-field><br>
 
         <mat-form-field>
-            <mat-label>Email address</mat-label>
+            <mat-label>{{"emailAddress"|translate}}</mat-label>
             <input matInput type="email" formControlName="email">
             <mat-error *ngIf="email && email.touched">
-                Wrong email! Example: your@email.com
+                {{"emailAddressError"|translate}}
             </mat-error>
         </mat-form-field><br>
 
         <mat-form-field>
-            <mat-label>Date of bithday</mat-label>
+            <mat-label>{{"dateOfBirth"|translate}}</mat-label>
             <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth">
             <mat-datepicker-toggle matIconSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
             <mat-datepicker #dateOfBirth></mat-datepicker>
             <mat-error *ngIf="dateOfBirth">
-                Date of Birth is require!
+                {{"dateOfBirthRequired"|translate}}
             </mat-error>
         </mat-form-field><br>
 
-        <mat-checkbox formControlName="admin">Admin</mat-checkbox>
+        <mat-checkbox formControlName="admin">{{"admin"|translate}}</mat-checkbox>
 
-        <mat-checkbox formControlName="verified">Verified</mat-checkbox>
+        <mat-checkbox formControlName="verified">{{"verified"|translate}}</mat-checkbox>
 
-        <mat-checkbox formControlName="enabled">Enabled</mat-checkbox><br>
+        <mat-checkbox formControlName="enabled">{{"enabled"|translate}}</mat-checkbox><br>
 
-        <button mat-raised-button color="primary">Edit</button>
+        <button mat-raised-button color="primary">{{"edit"|translate}}</button>
         <p class="error">{{errorMessage}}</p>
     </mat-card-content>
 </form>

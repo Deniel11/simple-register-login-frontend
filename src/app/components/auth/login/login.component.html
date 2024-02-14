@@ -1,29 +1,29 @@
 <mat-card id="card">
     <form [formGroup]="form" (ngSubmit)="login()">
         <mat-card-title>
-            <h1 id="title">Login</h1>
+            <h1 id="title">{{"login"|translate}}</h1>
         </mat-card-title>
   
         <mat-card-content>
             <mat-form-field>
-                <mat-label>Username</mat-label>
+                <mat-label>{{"username"|translate}}</mat-label>
                 <input matInput formControlName="username">
                 <mat-error *ngIf="username && username.touched">
-                    Username is required!
+                    {{"usernameRequire"|translate}}
                 </mat-error>
             </mat-form-field><br>
   
             <mat-form-field>
-                <mat-label>Password</mat-label>
+                <mat-label>{{"password"|translate}}</mat-label>
                 <input matInput  [type]="hide ? 'password' : 'text'" formControlName="password">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="password && password.touched">
-                    Password is required!
+                    {{"passwordRequire"|translate}}
                 </mat-error>
             </mat-form-field><br>
-            <a routerLink="/forgot-password">Forgot password</a><br>
-            <button mat-raised-button color="primary" type="button" routerLink="/register">Register</button>
-            <button mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
+            <a routerLink="/forgot-password">{{"forgotPassword"|translate}}</a><br>
+            <button mat-raised-button color="primary" type="button" routerLink="/register">{{"register"|translate}}</button>
+            <button mat-raised-button color="primary" [disabled]="form.invalid">{{"login"|translate}}</button>
             <p class="error">{{errorMessage}}</p>
         </mat-card-content>
     </form>
