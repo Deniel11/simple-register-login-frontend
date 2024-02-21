@@ -9,7 +9,8 @@
     "passwordError": "A jelszónak 8 karakternek kell lennie és tartalmaznia kell 1 nagy betűt.",
     "passwordRequire": "Jelszó kitöltése szükséges!",
     "dateOfBirth": "Születési dátum",
-    "dateOfBirthError": "Születési dátumot ki kell tölteni!",
+    "dateOfBirthError": "Accepted date format: [dd-mm-yyyy].",
+    "dateOfBirthRequire": "Születési dátumot ki kell tölteni!",
     "register": "Regisztrálás",
     "login": "Bejelentkezés",
     "forgotPassword": "Elfelejtett jelszó",
@@ -25,5 +26,7 @@
     "userDetails": "Felhasználói adatok",
     "editUser": "Felhasználó szerkesztés",
     "edit": "Szerkesztés",
-    "logout": "Kijelentkezés"
+    "logout": "Kijelentkezés",
+    "isTaken": "foglalt.",
+    "sgWentWrong": "Valami baj van!"
 }

@@ -9,6 +9,7 @@
     "passwordError": "Password must be 8 characters and includes 1 uppercase character.",
     "passwordRequire": "Password is required!",
     "dateOfBirth": "Date of bithday",
+    "dateOfBirthError": "Accepted date format: [dd-mm-yyyy].",
     "dateOfBirthRequire": "Date of Birth is require!",
     "register": "Register",
     "login": "Login",
@@ -25,5 +26,7 @@
     "userDetails": "User details",
     "editUser": "Edit user",
     "edit": "Edit",
-    "logout": "Logout"
+    "logout": "Logout",
+    "isTaken": "is already taken.",
+    "sgWentWrong": "Something went wrong!"
 }

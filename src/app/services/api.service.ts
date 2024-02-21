@@ -96,7 +96,7 @@ export class ApiService {
   private post(url : string, body : Object, options : Object) : Observable<any> {
     let data =  this.http.post(url, body, options)
       .pipe(catchError((error: any, caught: Observable<any>): Observable<any> => {
-          return of(error.error);
+          return of(error);
       }));
     return data;
   }
