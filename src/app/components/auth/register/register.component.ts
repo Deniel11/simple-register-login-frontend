@@ -72,7 +72,7 @@ export class RegisterComponent {
           this.errorMessage = this.translate.instant('sgWentWrong');
           console.log(data.error.message);
         }
-      } else if(data.type == 'error') {
+      } else if(data.type == 'error' || data.status == 0) {
         this.errorMessage = this.translate.instant('sgWentWrong');  
       } else {
         window.location.href = '/';
