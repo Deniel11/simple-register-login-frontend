@@ -47,8 +47,6 @@ export class RegisterComponent {
       this.form.value.dateOfBirth = formatDate(this.form.value.dateOfBirth, 'dd-MM-yyyy', 'en');
     }
     this.apiService.register(this.form.value).subscribe(data => {
-      console.log(data);
-
       if(data.error.status == 'error') {
         if(data.status == 409){
           let spliterErrorMessage = data.error.message.split(" ", 1)[0];

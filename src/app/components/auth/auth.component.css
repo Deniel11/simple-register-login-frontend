@@ -1,18 +1,54 @@
-#card{
+#card {
     max-width: 50%;
-    margin: auto;
-    margin-top: 5%;
+    margin: 5% auto;
     text-align: center;
-    background-color:antiquewhite;
-}
-#title{
-    margin: 20px;
-    font-weight: bold;
-}
-mat-form-field{
-    min-width: 300px;
-    margin-top: 20px;
-}
-#card button{
-    margin-top: 50px;
-}
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    #title {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  
+    mat-form-field {
+      min-width: 300px;
+      margin-top: 20px;
+  
+      input {
+        width: 100%;
+        padding: 10px;
+      }
+  
+      a {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+      }
+  
+      button {
+        margin-top: 30px;
+      }
+  
+      .error {
+        color: red;
+        margin-top: 10px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      max-width: 80%;
+      padding: 15px;
+  
+      #title {
+        font-size: 20px;
+      }
+  
+      mat-form-field {
+        min-width: auto;
+      }
+    }
+  }

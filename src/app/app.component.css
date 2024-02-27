@@ -1,0 +1,22 @@
+#language {
+    margin: 20px;
+    text-align: right;
+  
+    select.form-select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+  
+      &:hover {
+        border-color: #007bff;
+      }
+  
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+  }
