@@ -27,11 +27,11 @@ export class LoginComponent {
     this.apiService.login(this.form.value.username, this.form.value.password).subscribe(data => {     
       if(data.status == 'error') {
         this.errorMessage = data.message;
-      } else if(data.type == 'error') {
-        this.errorMessage = 'Something went wrong!';  
-      } else {
+      } else if(data.token){       
         this.authService.setToken(data.token);
         window.location.href = '/'
+      } else {
+        this.errorMessage = 'Something went wrong!';  
       }
     });
   }
