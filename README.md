@@ -1,27 +1,57 @@
-# SimpleRegisterLogin
+# Simple Register Login Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+> [!IMPORTANT]
+> Under development
 
-## Development server
+## Description
+
+This Angular project uses my [Java backend project](https://github.com/Deniel11/simple-register-login-backend). If you don't have a backend project or you don't want to create another, you can use my backend project.
+
+What the project can do:
+- Use an API which has register, login, verify email, forgot password, change password endpoints.
+- Display these endpoints.
+- Validate input data.
+- Display error messages.
+- Utilizes a translate module (English, Hungarian).
+
+> For now, the translate module works with every component, but the error messages work only at the registration part because every backend is different.
+
+## Development Server
+
+For the initial setup, install the Angular CLI by running:
+```bash
+npm i @angular/cli
+```
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Everything else is the same as other Angular commands, so you can use `ng help`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+This frontend application can be containerized using Docker. If you haven't installed Docker yet, you can find instructions [here](https://docs.docker.com/get-docker/).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Build the Docker image with the following command:
+```bash
+docker build -t [image name] .
+```
 
-## Running unit tests
+Start the Docker container in detached mode, mapping port 4200 on the host to port 4200 in the container:
+```bash
+docker start -d -p 4200:4200 [image name]
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+After successful execution, you can access the application at `http://localhost:4200/`.
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+After configuring the application and ensuring it is connected to your backend and SQL server, you can use the application.
 
-## Further help
+Access the application using the following URLs:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Base URL: `http://localhost` or `[your domain name]`
+- Start/Login Page: `[domain]/login`
+- Register Page: `[domain]/register`
+- Verify Email Page: `[domain]/verify-email`
+- Forgot Password Page: `[domain]/forgot-password`
+- Change Password Page: `[domain]/change-password`
