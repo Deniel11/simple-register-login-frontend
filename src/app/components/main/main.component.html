@@ -1,8 +1,11 @@
 <div id="header"></div>
 <div id="menu">
-    <button mat-raised-button color="primary" type="button" routerLink="/">{{"home"|translate}}</button>
-    <button mat-raised-button color="primary" type="button" routerLink="/users">{{"users"|translate}}</button>
-    <button mat-raised-button color="primary" type="button" routerLink="/user">{{"userDetails"|translate}}</button>
-    <button mat-raised-button color="primary" type="button" (click)="logout()">{{"logout"|translate}}</button>
+    <a routerLink="/">{{"home"|translate}}</a>
+    <a routerLink="/users">{{"users"|translate}}</a>
+    <a routerLink="/user">{{"userDetails"|translate}}</a>
+    <a (click)="logout()">{{"logout"|translate}}</a>
+</div>
+<div id="translate">
+    <app-translate></app-translate>
 </div>
 <router-outlet></router-outlet>

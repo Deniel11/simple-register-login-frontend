@@ -34,6 +34,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { EditUserComponent } from './components/main/edit-user/edit-user.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateComponent } from './components/translate/translate.component';
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http:HttpClient){
     RegisterComponent,
     AuthComponent,
     LoginComponent,
-    EditUserComponent
+    EditUserComponent,
+    TranslateComponent
   ],
   imports: [
     BrowserModule,

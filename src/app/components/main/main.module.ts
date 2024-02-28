@@ -6,6 +6,7 @@ import { OtherUserComponent } from './other-user/other-user.component';
 import { UsersComponent } from './users/users.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { TranslateComponent } from '../translate/translate.component';
 
 const routes: Routes = [ 
   {

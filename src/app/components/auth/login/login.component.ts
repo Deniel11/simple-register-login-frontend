@@ -31,6 +31,7 @@ export class LoginComponent {
         this.authService.setToken(data.token);
         window.location.href = '/'
       } else {
+        this.authService.setToken(data.token);
         this.errorMessage = 'Something went wrong!';  
       }
     });
