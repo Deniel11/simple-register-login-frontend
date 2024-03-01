@@ -1,0 +1,16 @@
+<div id="header">
+    <div id="logo" routerLink="/">Logo</div>
+    <div id="menuToggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="menu" [class.open]="isMenuOpen">
+    <a routerLink="/users">{{"users"|translate}}</a>
+    <a routerLink="/user">{{"userDetails"|translate}}</a>
+    <a (click)="logout()">{{"logout"|translate}}</a>
+    <div id="translate">
+        <app-translate></app-translate>
+    </div>
+</div>
