@@ -1,11 +1,3 @@
-<div id="header"></div>
-<div id="menu">
-    <a routerLink="/">{{"home"|translate}}</a>
-    <a routerLink="/users">{{"users"|translate}}</a>
-    <a routerLink="/user">{{"userDetails"|translate}}</a>
-    <a (click)="logout()">{{"logout"|translate}}</a>
-</div>
-<div id="translate">
-    <app-translate></app-translate>
-</div>
+<app-hamburger-menu></app-hamburger-menu>
+
 <router-outlet></router-outlet>

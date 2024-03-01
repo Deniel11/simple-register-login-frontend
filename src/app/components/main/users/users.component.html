@@ -1,25 +1,24 @@
-<table>
-    <tr>
-        <th>{{"username"|translate}}</th>
-        <th>{{"emailAddress"|translate}}</th>
-        <th>{{"admin"|translate}}</th>
-        <th>{{"verified"|translate}}</th>
-        <th>{{"enabled"|translate}}</th>
-    </tr>
-    <tr *ngFor="let user of users;">
-        <td class="pointer" [routerLink]="['/user/', user.id]">{{user.username}}</td>
-        <td class="pointer" [routerLink]="['/user/', user.id]">{{user.email}}</td>
-        <td class="pointer">
-            <div *ngIf="user.admin; else else_block">✔</div>
-            <ng-template #else_block>❌</ng-template>
-        </td>
-        <td class="pointer">
-            <div *ngIf="user.verified; else else_block">✔</div>
-            <ng-template #else_block>❌</ng-template>
-        </td>
-        <td class="pointer">
-            <div *ngIf="user.enabled; else else_block">✔</div>
-            <ng-template #else_block>❌</ng-template>
-        </td>
-    </tr>
-</table>
+<div class="user-cards">
+    <div *ngFor="let user of users" class="user-card" [routerLink]="['/user/', user.id]">
+        <div class="user-info">
+        <div class="label">{{"username" | translate}}:</div>
+        <div class="value pointer">{{ user.username }}</div>
+        </div>
+        <div class="user-info">
+        <div class="label">{{"emailAddress" | translate}}:</div>
+        <div class="value pointer">{{ user.email }}</div>
+        </div>
+        <div class="user-info">
+        <div class="label">{{"admin" | translate}}:</div>
+        <div class="value pointer" [ngClass]="{'check-mark': user.admin, 'cross-mark': !user.admin}"></div>
+        </div>
+        <div class="user-info">
+        <div class="label">{{"verified" | translate}}:</div>
+        <div class="value pointer" [ngClass]="{'check-mark': user.verified, 'cross-mark': !user.verified}"></div>
+        </div>
+        <div class="user-info">
+        <div class="label">{{"enabled" | translate}}:</div>
+        <div class="value pointer" [ngClass]="{'check-mark': user.enabled, 'cross-mark': !user.enabled}"></div>
+        </div>
+    </div>
+</div>

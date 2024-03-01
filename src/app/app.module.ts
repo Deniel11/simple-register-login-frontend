@@ -35,6 +35,7 @@ import { EditUserComponent } from './components/main/edit-user/edit-user.compone
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateComponent } from './components/translate/translate.component';
+import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http:HttpClient){
     AuthComponent,
     LoginComponent,
     EditUserComponent,
-    TranslateComponent
+    TranslateComponent,
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule,

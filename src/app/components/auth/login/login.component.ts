@@ -24,13 +24,15 @@ export class LoginComponent {
   }
 
   login() {
-    this.apiService.login(this.form.value.username, this.form.value.password).subscribe(data => {     
-      if(data.status == 'error') {
-        this.errorMessage = data.message;
+    this.apiService.login(this.form.value.username, this.form.value.password).subscribe(data => {   
+      console.log(data);
+       
+      if(data.error) {
+        this.errorMessage = data.error.message;
       } else if(data.token){       
         this.authService.setToken(data.token);
         window.location.href = '/'
-      } else {
+      } else {        
         this.authService.setToken(data.token);
         this.errorMessage = 'Something went wrong!';  
       }

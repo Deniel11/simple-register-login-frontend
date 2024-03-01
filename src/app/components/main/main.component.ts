@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { TranslateComponent } from '../translate/translate.component';
 
 @Component({
   selector: 'app-main',
