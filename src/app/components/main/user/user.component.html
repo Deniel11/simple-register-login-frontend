@@ -2,5 +2,6 @@
     <p>{{"username"|translate}}: {{user?.username}}</p>
     <p>{{"emailAddress"|translate}}: {{user?.email}}</p>
     <p>{{"admin"|translate}}: {{user?.admin}}</p>
+    <button mat-raised-button color="primary" type="button" [routerLink]="['/edit-user/', user?.id]">{{"editUser"|translate}}</button>
     <p>{{errorMessage}}</p>
 </div>
