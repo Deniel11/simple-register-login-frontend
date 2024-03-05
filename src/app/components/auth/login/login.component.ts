@@ -27,13 +27,12 @@ export class LoginComponent {
     this.apiService.login(this.form.value.username, this.form.value.password).subscribe(data => {   
       console.log(data);
        
-      if(data.error) {
+      if(data.error.status) {
         this.errorMessage = data.error.message;
       } else if(data.token){       
         this.authService.setToken(data.token);
-        window.location.href = '/'
-      } else {        
-        this.authService.setToken(data.token);
+        window.location.href = '/';
+      } else {
         this.errorMessage = 'Something went wrong!';  
       }
     });

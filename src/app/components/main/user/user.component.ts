@@ -23,6 +23,10 @@ export class UserComponent {
     if(token != null) {
       this.apiService.getUser(token).subscribe(data => {
         if(data.status == 'error') {
+          if(data.message == "Access Denied.") {
+            this.authService.removeToken();
+            window.location.href = "/";
+          }
           this.errorMessage = data.message;
         } else if(data.type == 'error' || data.error != null) {
           this.errorMessage = 'Something went wrong!';  
